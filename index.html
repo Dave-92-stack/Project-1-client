@@ -13,5 +13,26 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+
+      <p id="message"></p>
+
+      <form id="sign-up">
+        <input name="credentials[email]" placeholder="email" type="text">
+        <input name="credentials[password]" placeholder="password" type="password">
+        <input name="credentials[password_confirmation]" placeholder="password confirmation" type="password">
+        <button type="submit">Sign Up!</button>
+      </form>
+
+      <form id="sign-in">
+        <input name="credentials[email]" placeholder="email" type="text">
+        <input name="credentials[password]" placeholder="password" type="password">
+        <button type="submit">Sign In!</button>
+      </form>
+
+      <form id="change-password">
+        <input name="passwords[old]" placeholder="old password" type="password">
+        <input name="passwords[new]" placeholder="new password" type="password">
+        <button type="submit">Change Password</button>
+      </form>
     </body>
 </html>
