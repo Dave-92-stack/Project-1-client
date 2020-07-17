@@ -1,4 +1,4 @@
-curl "https://library-express-api.herokuapp.com/change-password" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/change-password" \
   --include \
   --request PATCH \
   --header "Authorization: Bearer ${TOKEN}" \
