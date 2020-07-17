@@ -11,7 +11,7 @@ const signInSuccess = function (response) {
   $('#message').text('Sign in successful!')
   console.log(store)
   store.user = response.user
-  console.log('store :', store)
+  console.log('store: ', store)
   console.log('token: ', store.user.token)
 }
 const signInFailure = function () {
@@ -25,11 +25,22 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function () {
   $('#message').text('Change password failed.')
 }
+
+const signOutSuccess = function () {
+  $('#message').text('Successfully signed out.')
+}
+
+const signOutFailure = function () {
+  $('#message').text('Failed to sign out.')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
