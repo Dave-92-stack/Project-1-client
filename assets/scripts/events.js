@@ -62,8 +62,12 @@ const onGetGames = function (event) {
 
 const onPickSquare = function (event) {
   event.preventDefault()
+  const square = event.target.id
+  api.takeTurn(square)
+    .then(ui.pickSquareSuccess)
+    .catch(ui.pickSquareFailure)
 
-  console.log('This is the pick square event target', event.target)
+  console.log('This is the pick square event target', event.target.id)
 }
 
 module.exports = {

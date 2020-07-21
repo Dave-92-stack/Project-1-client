@@ -1,5 +1,11 @@
 const store = require('./store')
 
+const switchPlayer = function () {
+  if (store.player === 'X') {
+    store.player = 'O'
+  } else { store.player = 'X' }
+}
+
 const signUpSuccess = function () {
   $('#message').text('Successfully signed up!')
 }
@@ -33,18 +39,34 @@ const signOutFailure = function () {
 }
 
 const createGameSuccess = function (response) {
-  store.game = response.game.id
+  store.game = response.game._id
   store.plays = response.game.cells
-  console.log('response in create game success', response)
-  $('#message').text('Game created successfully')
+  store.player = 'X'
+  console.log('this is store after game creation ', store)
+  $('#message').text(`Game created successfully, ${store.player} goes first.`)
   for (let i = 0; i < store.plays.length; i++) {
     $(`#${i}`).text(store.plays[i])
   }
   // $('#0').text(store.plays[0])
   // $(`#0`).text('X')
 }
+
 const createGameFailure = function () {
   console.log('Failed to create game')
+}
+
+const pickSquareSuccess = function (response) {
+  store.game = response.game._id
+  store.plays = response.game.cells
+  $('#message').text(`Great play, ${store.player} !`)
+  for (let i = 0; i < store.plays.length; i++) {
+    $(`#${i}`).text(store.plays[i])
+  }
+  switchPlayer()
+}
+
+const pickSquareFailure = function () {
+  $('#message').text('Failed to make a move!')
 }
 
 const getGamesSuccess = function (response) {
@@ -66,5 +88,7 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   getGamesSuccess,
-  getGamesFailure
+  getGamesFailure,
+  pickSquareSuccess,
+  pickSquareFailure
 }
