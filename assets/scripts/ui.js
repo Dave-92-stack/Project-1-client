@@ -1,4 +1,5 @@
 const store = require('./store')
+const board = require('./board')
 
 const signUpSuccess = function () {
   $('#message').text('Successfully signed up!')
@@ -33,10 +34,19 @@ const signOutFailure = function () {
 }
 
 const createGameSuccess = function (response) {
-
+  store.game = response.game.id
+  store.plays = response.game.cells
+  board.resetGame()
 }
 const createGameFailure = function () {
   console.log('Failed to create game')
+}
+
+const getGamesSuccess = function (response) {
+  $('#message').text(`You have played ${response.games.length}`)
+}
+const getGamesFailure = function () {
+  $('#message').text('Failed to get games.')
 }
 
 module.exports = {
@@ -49,5 +59,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  getGamesSuccess,
+  getGamesFailure
 }

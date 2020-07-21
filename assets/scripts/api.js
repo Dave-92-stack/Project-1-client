@@ -50,10 +50,33 @@ const createGame = function () {
   })
 }
 
+const updateGame = function (gameData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games/' + store.game,
+    data: gameData,
+    method: 'PATCH'
+  })
+}
+
+const getGames = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games/',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createGame
+  createGame,
+  updateGame,
+  getGames
 }
