@@ -50,6 +50,25 @@ const createGame = function () {
   })
 }
 
+const takeTurn = function (index) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games/' + store.game,
+    method: 'PATCH',
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: store.player
+        },
+        over: false
+      }
+    }
+  })
+}
+
 const getGames = function () {
   return $.ajax({
     headers: {
@@ -66,5 +85,6 @@ module.exports = {
   changePassword,
   signOut,
   createGame,
-  getGames
+  getGames,
+  takeTurn
 }
