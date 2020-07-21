@@ -1,5 +1,4 @@
 const store = require('./store')
-const board = require('./board')
 
 const signUpSuccess = function () {
   $('#message').text('Successfully signed up!')
@@ -36,7 +35,13 @@ const signOutFailure = function () {
 const createGameSuccess = function (response) {
   store.game = response.game.id
   store.plays = response.game.cells
-  board.resetGame()
+  console.log('response in create game success', response)
+  $('#message').text('Game created successfully')
+  for (let i = 0; i < store.plays.length; i++) {
+    $(`#${i}`).text(store.plays[i])
+  }
+  // $('#0').text(store.plays[0])
+  // $(`#0`).text('X')
 }
 const createGameFailure = function () {
   console.log('Failed to create game')

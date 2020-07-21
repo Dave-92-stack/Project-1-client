@@ -60,11 +60,18 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
+const onPickSquare = function (event) {
+  event.preventDefault()
+
+  console.log('This is the pick square event target', event.target)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onGetGames
+  onGetGames,
+  onPickSquare
 }

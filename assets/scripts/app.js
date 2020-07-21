@@ -14,4 +14,5 @@ $(() => {
   $('#sign-out').on('submit', events.onSignOut)
   $('#create-game').on('submit', events.onCreateGame)
   $('#get-games').on('submit', events.onGetGames)
+  $('.col-4 box').on('submit', events.onPickSquare)
 })
