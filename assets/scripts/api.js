@@ -39,9 +39,32 @@ const signOut = function () {
   })
 }
 
+const createGame = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+    data: '{}',
+    method: 'POST'
+  })
+}
+
+const getGames = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games/',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createGame,
+  getGames
 }

@@ -1,1 +1,38 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container {
+  height: 100vh;
+}
+.board {
+  margin: auto;
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
+}
+
+.box {
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+
+  &:nth-child(3n) {
+    border-right: 0;
+  }
+
+  &:nth-last-child(-1n + 3) {
+    border-bottom: 0;
+  }
+
+  min-height: calc(100vh / 3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15vh;
+  text-shadow: 3px 2px rgba(0, 0, 0, .25);
+
+  &:hover {
+    background-color: lightblue;
+  }
+
+  user-select: none;
+}

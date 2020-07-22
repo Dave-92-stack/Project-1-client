@@ -21,7 +21,6 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#message').text('Change password success!')
 }
-
 const changePasswordFailure = function () {
   $('#message').text('Change password failed.')
 }
@@ -29,9 +28,30 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Successfully signed out.')
 }
-
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')
+}
+
+const createGameSuccess = function (response) {
+  store.game = response.game.id
+  store.plays = response.game.cells
+  console.log('response in create game success', response)
+  $('#message').text('Game created successfully')
+  for (let i = 0; i < store.plays.length; i++) {
+    $(`#${i}`).text(store.plays[i])
+  }
+  // $('#0').text(store.plays[0])
+  // $(`#0`).text('X')
+}
+const createGameFailure = function () {
+  console.log('Failed to create game')
+}
+
+const getGamesSuccess = function (response) {
+  $('#message').text(`You have played ${response.games.length}`)
+}
+const getGamesFailure = function () {
+  $('#message').text('Failed to get games.')
 }
 
 module.exports = {
@@ -42,5 +62,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFailure,
+  getGamesSuccess,
+  getGamesFailure
 }
