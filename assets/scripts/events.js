@@ -63,11 +63,16 @@ const onGetGames = function (event) {
 const onPickSquare = function (event) {
   event.preventDefault()
   const square = event.target.id
-  api.takeTurn(square)
-    .then(ui.pickSquareSuccess)
-    .catch(ui.pickSquareFailure)
+  const text = $(event.target).text()
+  if (text !== '') {
+    $('#message').text('That spots already used!')
+  } else {
+    api.takeTurn(square)
+      .then(ui.pickSquareSuccess)
+      .catch(ui.pickSquareFailure)
 
-  console.log('This is the pick square event target', event.target.id)
+    console.log('This is the pick square event target', event.target.id)
+  }
 }
 
 module.exports = {
