@@ -62,12 +62,18 @@ const onGetGames = function (event) {
 
 const onPickSquare = function (event) {
   event.preventDefault()
-  const square = event.target.id
-  api.takeTurn(square)
-    .then(ui.pickSquareSuccess)
-    .catch(ui.pickSquareFailure)
 
-  console.log('This is the pick square event target', event.target.id)
+  const square = event.target.id
+  const text = $(event.target).text()
+  if (text !== '') {
+    $('#message').text('That space is already in play!')
+  } else {
+    api.takeTurn(square)
+      .then(ui.pickSquareSuccess)
+      .catch(ui.pickSquareFailure)
+
+    console.log('This is the pick square event target', event.target.id)
+  }
 }
 
 module.exports = {
@@ -79,3 +85,6 @@ module.exports = {
   onGetGames,
   onPickSquare
 }
+
+// check for a winner afer every click
+// if plays.index has something that is not an empty string send don't do that

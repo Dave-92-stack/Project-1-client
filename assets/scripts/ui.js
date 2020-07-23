@@ -50,7 +50,6 @@ const createGameSuccess = function (response) {
   // $('#0').text(store.plays[0])
   // $(`#0`).text('X')
 }
-
 const createGameFailure = function () {
   console.log('Failed to create game')
 }
@@ -64,7 +63,6 @@ const pickSquareSuccess = function (response) {
   }
   switchPlayer()
 }
-
 const pickSquareFailure = function () {
   $('#message').text('Failed to make a move!')
 }
