@@ -54,24 +54,17 @@ const createGameFailure = function () {
   console.log('Failed to create game')
 }
 
-const pickSquareSuccess = function (response) {
+const pickSquareSuccess = function (response, winner) {
   store.game = response.game._id
   store.plays = response.game.cells
   $('#message').text(`Great play, ${store.player} !`)
   for (let i = 0; i < store.plays.length; i++) {
     $(`#${i}`).text(store.plays[i])
+    switchPlayer()
   }
-  switchPlayer()
 }
 const pickSquareFailure = function () {
   $('#message').text('Failed to make a move!')
-}
-
-const getGamesSuccess = function (response) {
-  $('#message').text(`You have played ${response.games.length}`)
-}
-const getGamesFailure = function () {
-  $('#message').text('Failed to get games.')
 }
 
 module.exports = {
@@ -85,8 +78,6 @@ module.exports = {
   signOutFailure,
   createGameSuccess,
   createGameFailure,
-  getGamesSuccess,
-  getGamesFailure,
   pickSquareSuccess,
   pickSquareFailure
 }

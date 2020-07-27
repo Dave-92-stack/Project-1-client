@@ -52,14 +52,6 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-const onGetGames = function (event) {
-  event.preventDefault()
-
-  api.getGames()
-    .then(ui.getGamesSuccess)
-    .catch(ui.getGamesFailure)
-}
-
 const onPickSquare = function (event) {
   event.preventDefault()
 
@@ -82,7 +74,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onGetGames,
   onPickSquare
 }
 

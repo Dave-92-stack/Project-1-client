@@ -13,6 +13,5 @@ $(() => {
   $('#change-password').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
   $('#create-game').on('submit', events.onCreateGame)
-  $('#get-games').on('submit', events.onGetGames)
   $('.col-4.box').on('click', events.onPickSquare)
 })
