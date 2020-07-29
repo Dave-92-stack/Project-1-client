@@ -1,5 +1,7 @@
 const store = require('./store')
 
+window.gameOver = false
+
 const switchPlayer = function () {
   if (store.player === 'X') {
     store.player = 'O'
@@ -63,22 +65,31 @@ const pickSquareSuccess = function (response, winner) {
     switchPlayer()
   }
   if (response.game.cells[0] !== '' && response.game.cells[0] === response.game.cells[1] && response.game.cells[0] === response.game.cells[2]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[0] + ' wins!'))
   } else if (response.game.cells[3] !== '' && response.game.cells[3] === response.game.cells[4] && response.game.cells[3] === response.game.cells[5]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[3] + ' wins!'))
   } else if (response.game.cells[6] !== '' && response.game.cells[6] === response.game.cells[7] && response.game.cells[6] === response.game.cells[8]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[6] + ' wins!'))
   } else if (response.game.cells[0] !== '' && response.game.cells[0] === response.game.cells[3] && response.game.cells[0] === response.game.cells[6]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[0] + ' wins!'))
   } else if (response.game.cells[1] !== '' && response.game.cells[1] === response.game.cells[4] && response.game.cells[1] === response.game.cells[7]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[1] + ' wins!'))
   } else if (response.game.cells[2] !== '' && response.game.cells[2] === response.game.cells[5] && response.game.cells[2] === response.game.cells[8]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[2] + ' wins!'))
   } else if (response.game.cells[0] !== '' && response.game.cells[0] === response.game.cells[4] && response.game.cells[0] === response.game.cells[8]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[0] + ' wins!'))
   } else if (response.game.cells[2] !== '' && response.game.cells[2] === response.game.cells[4] && response.game.cells[2] === response.game.cells[6]) {
+    window.gameOver = true;
     ($('#message').text(response.game.cells[2] + ' wins!'))
   } else if (response.game.cells[0, 1, 2, 3, 4, 5, 6, 7, 8] !== '') {
+    window.gameOver = true;
     ($('#message').text('Its a draw!'))
   }
 }

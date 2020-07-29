@@ -57,7 +57,8 @@ const onPickSquare = function (event) {
 
   const square = event.target.id
   const text = $(event.target).text()
-  if (text !== '') {
+  if (window.gameOver === true) {
+  } else if (text !== '') {
     $('#message').text('That space is already in play!')
   } else {
     api.takeTurn(square)
