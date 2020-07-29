@@ -47,6 +47,8 @@ const onSignOut = function (event) {
 const onCreateGame = function (event) {
   event.preventDefault()
 
+  window.gameOver = false
+
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)

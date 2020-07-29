@@ -88,7 +88,7 @@ const pickSquareSuccess = function (response, winner) {
   } else if (response.game.cells[2] !== '' && response.game.cells[2] === response.game.cells[4] && response.game.cells[2] === response.game.cells[6]) {
     window.gameOver = true;
     ($('#message').text(response.game.cells[2] + ' wins!'))
-  } else if (response.game.cells[0, 1, 2, 3, 4, 5, 6, 7, 8] !== '') {
+  } else if (response.game.cells.every(val => val)) {
     window.gameOver = true;
     ($('#message').text('Its a draw!'))
   }
