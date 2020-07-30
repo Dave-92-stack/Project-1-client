@@ -69,11 +69,22 @@ const takeTurn = function (index) {
   })
 }
 
+const getGames = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   createGame,
-  takeTurn
+  takeTurn,
+  getGames
 }

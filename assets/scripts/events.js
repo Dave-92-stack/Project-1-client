@@ -71,13 +71,22 @@ const onPickSquare = function (event) {
   }
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onPickSquare
+  onPickSquare,
+  onGetGames
 }
 
 // check for a winner afer every click

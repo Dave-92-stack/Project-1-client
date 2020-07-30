@@ -97,6 +97,14 @@ const pickSquareFailure = function () {
   $('#message').text('Failed to make a move!')
 }
 
+const getGamesSuccess = function () {
+  $('#message').text('Games played' + store.game[i])
+}
+
+const getGamesFailure = function () {
+  $('#message').text('Failed to get games')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -109,5 +117,7 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   pickSquareSuccess,
-  pickSquareFailure
+  pickSquareFailure,
+  getGamesSuccess,
+  getGamesFailure
 }
