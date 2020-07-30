@@ -1,4 +1,5 @@
 const store = require('./store')
+const getGames = require('./api')
 
 window.gameOver = false
 
@@ -97,8 +98,9 @@ const pickSquareFailure = function () {
   $('#message').text('Failed to make a move!')
 }
 
-const getGamesSuccess = function () {
-  $('#message').text('Games played' + )
+const getGamesSuccess = function (response) {
+  const getGames = response.games.length
+  $('#message').text('Games played ' + getGames)
 }
 
 const getGamesFailure = function () {
