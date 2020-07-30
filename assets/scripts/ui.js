@@ -98,7 +98,7 @@ const pickSquareFailure = function () {
 }
 
 const getGamesSuccess = function () {
-  $('#message').text('Games played' + store.game[i])
+  $('#message').text('Games played' + )
 }
 
 const getGamesFailure = function () {
