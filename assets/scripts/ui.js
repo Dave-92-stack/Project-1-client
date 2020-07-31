@@ -11,6 +11,7 @@ const switchPlayer = function () {
 
 const signUpSuccess = function () {
   $('#message').text('Successfully signed up!')
+  $('form').trigger('reset')
 }
 const signUpFailure = function () {
   $('#message').text('Failed to sign up!')
@@ -18,6 +19,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   $('#message').text('Sign in successful!')
+  $('form').trigger('reset')
   console.log(store)
   store.user = response.user
   console.log('store: ', store)
@@ -29,6 +31,7 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function () {
   $('#message').text('Change password success!')
+  $('form').trigger('reset')
 }
 const changePasswordFailure = function () {
   $('#message').text('Change password failed.')
@@ -36,6 +39,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   $('#message').text('Successfully signed out.')
+  $('form').trigger('reset')
 }
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')
