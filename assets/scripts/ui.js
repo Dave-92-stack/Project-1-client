@@ -1,5 +1,4 @@
 const store = require('./store')
-const getGames = require('./api')
 
 window.gameOver = false
 
