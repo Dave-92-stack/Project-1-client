@@ -47,9 +47,28 @@ const onSignOut = function (event) {
 const onCreateGame = function (event) {
   event.preventDefault()
 
+  window.gameOver = false
+
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+}
+
+const onPickSquare = function (event) {
+  event.preventDefault()
+
+  const square = event.target.id
+  const text = $(event.target).text()
+  if (window.gameOver === true) {
+  } else if (text !== '') {
+    $('#message').text('That space is already in play!')
+  } else {
+    api.takeTurn(square)
+      .then(ui.pickSquareSuccess)
+      .catch(ui.pickSquareFailure)
+
+    console.log('This is the pick square event target', event.target.id)
+  }
 }
 
 const onGetGames = function (event) {
@@ -60,27 +79,15 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
-const onPickSquare = function (event) {
-  event.preventDefault()
-  const square = event.target.id
-  const text = $(event.target).text()
-  if (text !== '') {
-    $('#message').text('That spots already used!')
-  } else {
-    api.takeTurn(square)
-      .then(ui.pickSquareSuccess)
-      .catch(ui.pickSquareFailure)
-
-    console.log('This is the pick square event target', event.target.id)
-  }
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onGetGames,
-  onPickSquare
+  onPickSquare,
+  onGetGames
 }
+
+// check for a winner afer every click
+// if plays.index has something that is not an empty string send don't do that
