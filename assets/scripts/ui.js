@@ -17,6 +17,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
+  $('#authenticatedRoute').show()
+  $('#unauthenticatedRoute').hide()
   $('#message').text('Sign in successful!')
   $('form').trigger('reset')
   console.log(store)
@@ -39,6 +41,11 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Successfully signed out.')
   $('form').trigger('reset')
+  $('#unauthenticatedRoute').show()
+  $('#authenticatedRoute').hide()
+  $('#gameBoard').hide()
+  delete store.user
+  console.log(store.user)
 }
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')
@@ -50,6 +57,7 @@ const createGameSuccess = function (response) {
   store.player = 'X'
   console.log('this is store after game creation ', store)
   $('#message').text(`Game created successfully, ${store.player} goes first.`)
+  $('#gameBoard').show()
   for (let i = 0; i < store.plays.length; i++) {
     $(`#${i}`).text(store.plays[i])
   }

@@ -15,4 +15,6 @@ $(() => {
   $('#create-game').on('submit', events.onCreateGame)
   $('.col-4.box').on('click', events.onPickSquare)
   $('#get-games').on('click', events.onGetGames)
+  $('#authenticatedRoute').hide()
+  $('#gameBoard').hide()
 })
