@@ -29,7 +29,6 @@ const onChangePassword = function (event) {
   const form = event.target
   const formData = getFormFields(form)
 
-  console.log(formData)
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -65,8 +64,6 @@ const onPickSquare = function (event) {
     api.takeTurn(square)
       .then(ui.pickSquareSuccess)
       .catch(ui.pickSquareFailure)
-
-    console.log('This is the pick square event target', event.target.id)
   }
 }
 
