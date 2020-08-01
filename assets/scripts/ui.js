@@ -21,10 +21,7 @@ const signInSuccess = function (response) {
   $('#unauthenticatedRoute').hide()
   $('#message').text('Sign in successful!')
   $('form').trigger('reset')
-  console.log(store)
   store.user = response.user
-  console.log('store: ', store)
-  console.log('token: ', store.user.token)
 }
 const signInFailure = function () {
   $('#message').text('Sign in unsuccessful!')
@@ -45,7 +42,6 @@ const signOutSuccess = function () {
   $('#authenticatedRoute').hide()
   $('#gameBoard').hide()
   delete store.user
-  console.log(store.user)
 }
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')
@@ -55,7 +51,6 @@ const createGameSuccess = function (response) {
   store.game = response.game._id
   store.plays = response.game.cells
   store.player = 'X'
-  console.log('this is store after game creation ', store)
   $('#message').text(`Game created successfully, ${store.player} goes first.`)
   $('#gameBoard').show()
   for (let i = 0; i < store.plays.length; i++) {
@@ -65,7 +60,7 @@ const createGameSuccess = function (response) {
   // $(`#0`).text('X')
 }
 const createGameFailure = function () {
-  console.log('Failed to create game')
+  $('#message').text('Failed to create a game.')
 }
 
 const pickSquareSuccess = function (response, winner) {
