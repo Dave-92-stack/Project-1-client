@@ -17,6 +17,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
+  $('#authenticatedRoute').show()
+  $('#unauthenticatedRoute').hide()
   $('#message').text('Sign in successful!')
   $('form').trigger('reset')
   console.log(store)
@@ -39,6 +41,10 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Successfully signed out.')
   $('form').trigger('reset')
+  $('#unauthenticatedRoute').show()
+  $('#authenticatedRoute').hide()
+  delete store.user
+  console.log(store.user)
 }
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')

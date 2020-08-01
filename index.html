@@ -15,38 +15,40 @@
       <h1>Tic Tac Toe</h1>
 
       <p id="message"></p>
-
+    <div id = "unauthenticatedRoute">
       <form id="sign-up">
-        <input name="credentials[email]" placeholder="email" type="text">
-        <input name="credentials[password]" placeholder="password" type="password">
-        <input name="credentials[password_confirmation]" placeholder="password confirmation" type="password">
-        <button type="submit">Sign Up!</button>
+        <input class= "mx-2" name="credentials[email]" placeholder="email" type="text">
+        <input class= "mx-2" name="credentials[password]" placeholder="password" type="password">
+        <input class= "mx-2" name="credentials[password_confirmation]" placeholder="password confirmation" type="password">
+        <button class="btn btn-success" type="submit">Sign Up!</button>
       </form>
 
-      <form id="sign-in">
-        <input name="credentials[email]" placeholder="email" type="text">
-        <input name="credentials[password]" placeholder="password" type="password">
-        <button type="submit">Sign In!</button>
+      <form class="form-inline" id="sign-in">
+        <input class="mx-2" name="credentials[email]" placeholder="email" type="text">
+        <input class="mx-2" name="credentials[password]" placeholder="password" type="password">
+        <button class="btn btn-success" type="submit">Sign In!</button>
       </form>
+    </div>
 
+    <div id= "authenticatedRoute">
       <form id="change-password">
         <input name="passwords[old]"
         placeholder="old password" type="password">
         <input name="passwords[new]"
         placeholder="new password" type="password">
-        <button type="submit">Change Password</button>
+        <button class="btn btn-info" type="submit">Change Password</button>
       </form>
 
-      <form id="sign-out">
-      <button type="submit">Sign Out</button>
-      </form>
-
-      <form id="create-game">
-        <button type="submit">Start New Game</button>
+      <form class="form-inline" id="create-game">
+        <button class="btn btn-success" type="submit">Start New Game</button>
       </form>
 
       <form id="get-games">
-        <button type="submit">View Games Played</button>
+        <button class="btn btn-info" type="submit">View Games Played</button>
+      </form>
+
+      <form id="sign-out">
+      <button class="btn btn-danger" type="submit">Sign Out</button>
       </form>
 
       <section class="container">
@@ -64,5 +66,6 @@
           <div class='col-4 box' id=8></div>
         </div>
       </section>
+    </div>
     </body>
 </html>
