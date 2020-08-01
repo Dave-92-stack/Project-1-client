@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="mainTitle">
+        <h1>Tic Tac Toe</h1>
+      <p id="message"></p>
+    </div>
+    <div id = "unauthenticatedRoute">
+      <form id="sign-up">
+        <input class= "mx-2" name="credentials[email]" placeholder="email" type="text">
+        <input class= "mx-2" name="credentials[password]" placeholder="password" type="password">
+        <input class= "mx-2" name="credentials[password_confirmation]" placeholder="password confirmation" type="password">
+        <button class="btn btn-success" type="submit">Sign Up!</button>
+      </form>
+
+      <form class="form-inline" id="sign-in">
+        <input class="mx-2" name="credentials[email]" placeholder="email" type="text">
+        <input class="mx-2" name="credentials[password]" placeholder="password" type="password">
+        <button class="btn btn-success" type="submit">Sign In!</button>
+      </form>
+    </div>
+    <div id= "authenticatedRoute">
+      <form id="change-password">
+        <input name="passwords[old]"
+        placeholder="old password" type="password">
+        <input name="passwords[new]"
+        placeholder="new password" type="password">
+        <button class="btn btn-info" type="submit">Change Password</button>
+      </form>
+
+      <form class="form-inline" id="create-game">
+        <button class="btn btn-success" type="submit">Start New Game</button>
+      </form>
+
+      <form id="get-games">
+        <button class="btn btn-info" type="submit">View Games Played</button>
+      </form>
+
+      <form id="sign-out">
+      <button class="btn btn-danger" type="submit">Sign Out</button>
+      </form>
+      <div id="gameBoard">
+      <section class="container">
+        <div class='row h-100 board'>
+          <div class='col-4 box' id=0></div>
+          <div class='col-4 box' id=1></div>
+          <div class='col-4 box' id=2></div>
+
+          <div class='col-4 box' id=3></div>
+          <div class='col-4 box' id=4></div>
+          <div class='col-4 box' id=5></div>
+
+          <div class='col-4 box' id=6></div>
+          <div class='col-4 box' id=7></div>
+          <div class='col-4 box' id=8></div>
+        </div>
+      </section>
+    </div>
+    </div>
+    </body>
+</html>
