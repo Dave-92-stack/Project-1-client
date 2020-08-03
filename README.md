@@ -38,10 +38,10 @@ From then on I'd test every function and every change I made to my code. My pace
 ## Wireframes
 ---
 
-https://imgur.com/a/ksPb96K
-https://imgur.com/a/L8ubQsD
-https://imgur.com/a/KjWucEI
-https://imgur.com/a/Xf09bgN
+* https://imgur.com/a/ksPb96K
+* https://imgur.com/a/L8ubQsD
+* https://imgur.com/a/KjWucEI
+* https://imgur.com/a/Xf09bgN
 
 ## Unsolved Problems
 --------------------
